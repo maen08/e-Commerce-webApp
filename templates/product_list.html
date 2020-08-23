@@ -1,0 +1,25 @@
+<div class="row products">
+    {% for product in product_list %}
+    <div class="col-lg-3 col-md-4">
+      <div class="product">
+        <div class="flip-container">
+          <div class="flipper">
+            <div class="front"><a href="{% url 'detail' product.id %}"><img src="{{ product.image.url }}" alt="" class="img-fluid"></a></div>
+            <div class="back"><a href="{% url 'detail' product.id %}"><img src="{{ product.image.url }}" alt="" class="img-fluid"></a></div>
+          </div>
+        </div><a href="{% url 'detail' product.id %}" class="invisible"><img src="{{ product.image.url }}" alt="" class="img-fluid"></a>
+        <div class="text">
+          <h3><a href="{% url 'detail' product.id %}">{{ product.name }}</a></h3>
+          <p class="price"> 
+            <del></del>${{ product.price }}
+          </p>
+          <p class="buttons"><a href="{% url 'detail' product.id %}" class="btn btn-outline-secondary">View detail</a><a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a></p>
+        </div>
+        <!-- /.text-->
+      </div>
+      <!-- /.product            -->
+    </div>
+
+    {% endfor %}
+
+</div>
