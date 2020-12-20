@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Product
+from rest_framework import viewsets
+from Cart.serializers import ProductSerializer
 
 def home_view(request):
     return render(request, template_name='category-full.html')
@@ -20,3 +22,9 @@ def detail_view(request, product_id):
         'detail':detail
     }
     return render(request, template_name='detail2.html', context=args)
+
+
+
+class ProductApiView(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer

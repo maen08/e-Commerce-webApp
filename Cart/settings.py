@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     # INSTALLED_APPS
     'product_app',
     'user_app',
+
+    'rest_framework',
     
     # django-allauth
     'allauth',
@@ -135,3 +137,12 @@ SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
